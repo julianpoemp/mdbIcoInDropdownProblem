@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {MdbDropdownDirective} from 'mdb-angular-ui-kit/dropdown';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mdbTest';
+  @ViewChild('dropdown') dropdown: MdbDropdownDirective | undefined;
+
+  toggle() {
+    console.log(`clicked`);
+    if (this.dropdown !== undefined) {
+      console.log(this.dropdown);
+      this.dropdown.show();
+    }
+  }
 }
